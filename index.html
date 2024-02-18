@@ -62,21 +62,21 @@
             <section class="flex  flex-1 items-center gap-5 bg-white rounded-lg border-b-4 border-[#1DD100] p-5">
                 <img class="h-[64px]" src="images/people.png" alt="">
                 <div>
-                    <h1 class="text-[64px] font-extrabold">500K+</h1>
+                    <h1 class="text-[36px] font-extrabold">500K+</h1>
                     <p class="text-lg">Registered users</p>
                 </div>
             </section>
             <section class="flex  flex-1 items-center gap-5 bg-white rounded-lg border-b-4 border-[#1DD100] p-5">
                 <img class="h-[64px]" src="images/ticket-cupon.png" alt="">
                 <div>
-                    <h1 class="text-[64px] font-extrabold">1.7 lacks</h1>
+                    <h1 class="text-[36px] font-extrabold">1.7 lacks</h1>
                     <p class="text-lg">Tickets sold</p>
                 </div>
             </section>
             <section class="flex  flex-1 items-center gap-5 bg-white rounded-lg border-b-4 border-[#1DD100] p-5">
                 <img class="h-[64px]" src="images/stoppage.png" alt="">
                 <div>
-                    <h1 class="text-[64px] font-extrabold">80K+</h1>
+                    <h1 class="text-[36px] font-extrabold">80K+</h1>
                     <p class="text-lg">Rental partners</p>
                 </div>
             </section>
@@ -96,22 +96,22 @@
                     <p>Coupon Code</p>
                 </div>
             </section>
-            <section class="flex flex-grow items-center h-40 bg-[#FFBF0F] rounded-lg">
+            <section class="flex flex-grow items-center h-40 bg-[#F78C9C] rounded-lg">
                 <div class="flex-grow p-8">
-                    <h2 class="text-[40px] font-black">15% OFF</h2>
+                    <h2 class="text-[40px] font-black">20% OFF</h2>
                     <p class="text-xl font-semibold">on your next purchase</p>
                     <p>use by January 2024</p>
                 </div>
                 <img class="h-[100%]" src="images/cupon-devider.png" alt="">
                 <div class="flex-grow p-8">
-                    <h2 class="text-[32px] font-bold">NEW15</h2>
+                    <h2 class="text-[32px] font-bold">Couple 20</h2>
                     <p>Coupon Code</p>
                 </div>
             </section>
         </div>
         <div class="flex justify-center mt-5 "><button class="btn btn-outline text-[#1DD100]">See All Offers</button></div>
     </main>
-    <div id="buyticket" class="rounded-t-[20%] border-t-2 border-[#1DD100] bg-[#F7F8F8] mt-32">
+    <div id="buyticket" class="rounded-t-[5%] border-t-2 border-[#1DD100] bg-[#F7F8F8] mt-32">
         <h1 class="text-[40px] font-bold text-center mt-28 mb-6">P.H Paribahan</h1>
         <p class="text-center">Yes, you can run unit tests and view the results directly within the app. The integrated <br>testing features allow for a streamlined .</p>
         <section class="container mx-auto flex justify-center items-center bg-white rounded-lg mt-5">
@@ -126,7 +126,7 @@
                 </div>
                 <div class="p-5 flex bg-green-100 rounded-lg">
                     <img class="h-[28px]" src="images/seat-green.png" alt="">
-                    <p>40 Seats left</p>
+                    <p><span id="sitLeft">40</span> Seats left</p>
                 </div>
                 </div>
                 <div class="bg-gray-100 p-5 rounded-lg font-semibold mt-5">
@@ -292,56 +292,50 @@
                     <h2 class="text-2xl font-semibold border-dashed border-b border-gray-500 my-2 py-2">Select Your Seat</h2>
                     <div class="bg-gray-200 p-5 ">
                         <div class="flex font-bold justify-between border-dashed border-b border-gray-500 my-2 py-2">
-                            <p>Seat <span class="bg-green-500 text-white px-2 rounded-lg text-base font-normal">2</span></p>
+                            <p>Seat <span class="bg-green-500 text-white px-2 rounded-lg text-base font-normal" id="totalSit">0</span></p>
                             <p>Class</p>
                             <p>Price</p>
                         </div>
-                        <div class="flex justify-between">
-                            <p>C2</p>
-                            <p>Economoy</p>
-                            <p>550</p>
+                        <div id="sitInfo">
+                            
                         </div>
-                        <div class="flex justify-between border-b border-gray-500 my-2 py-2">
-                            <p>C2</p>
-                            <p>Economoy</p>
-                            <p>550</p>
-                        </div>
+                    
                         <div class="flex justify-between font-bold">
                             <p>Total Price</p>
-                            <p>BDT 0</p>
+                            <p>BDT <span id="TotalPrice">0</span></p>
                         </div>
-                        <div class="flex justify-between font-bold">
+                        <div id="totalDiscount" class=" justify-between font-bold hidden">
                             <p>Discount Price</p>
-                            <p>BDT 0</p>
+                            <p>BDT <span id="discountPrice">0</span></p>
                         </div>
-                        <label class="input input-bordered flex items-center gap-2">
-                            <input type="text" class="grow" placeholder="Search" />
-                            <button class="badge btn badge-info bg-green-500 text-white rounded-md m-5 px-10" >Apply</button>
+                        <label id="coupenAdd" class="input input-bordered items-center gap-2 hidden">
+                            <input id="coupenVal" type="text" class="grow" placeholder="Search" />
+                            <button class="badge btn badge-info bg-green-500 text-white rounded-md m-5 px-10" onclick="onCouponApply()">Apply</button>
                           </label>
-                          <div class="flex justify-between font-bold">
+                          <div id="GrandTotal" class=" justify-between font-bold hidden">
                             <p>Grand Total</p>
-                            <p>BDT 0</p>
+                            <p>BDT <span id="grandPrice">0</span></p>
                         </div>
                     </div>
                     <label class="form-control">
                         <div class="label">
                           <span class="label-text font-bold">Passenger Name*</span>
                         </div>
-                        <input type="text" placeholder="Enter your name" class="input input-bordered" />
+                        <input type="text" placeholder="Enter your name" class="input input-bordered" autocomplete="name"/>
                       </label>
                       <label class="form-control">
                         <div class="label">
                           <span class="label-text font-bold">Phone Number*</span>
                         </div>
-                        <input type="number" placeholder="Enter your phone number" class="input input-bordered" />
+                        <input id="Cusnumber" autocomplete="tel" type="tel" placeholder="Enter your phone number" class="input input-bordered" />
                       </label>
                       <label class="form-control">
                         <div class="label">
                           <span class="label-text font-bold">Email ID</span>
                         </div>
-                        <input type="email" placeholder="Enter your email id" class="input input-bordered" />
+                        <input autocomplete="email" type="email" placeholder="Enter your email id" class="input input-bordered" />
                       </label>
-                      <button class="btn w-full bg-green-400 mt-5" disabled>Next</button>
+                      <button onclick="window.location.href = 'congrets.html'" id="buyTicketBtn" class="btn w-full bg-green-400 mt-5" disabled>Next</button>
                       <div class="flex justify-around text-base mt-5">
                         <a href="" class="underline">Terms and Conditions</a>
                       <a href="" class="underline">Cancellation Policy</a>
@@ -388,6 +382,21 @@
       </footer>
       <script>
         var selectedSeats = [];
+        function setTotalSet(){
+            document.getElementById("totalSit").innerText = selectedSeats.length;
+        }
+        function enableSubmit(){
+            let numVal = document.getElementById("Cusnumber").value;
+            if(selectedSeats.length>=1 && numVal){
+                var buyTicketBtn = document.getElementById('buyTicketBtn');
+                buyTicketBtn.disabled = false; 
+            }
+        }
+        document.getElementById("Cusnumber").addEventListener("keyup",enableSubmit)
+        function calculateTotal() {
+            let totalPrice  = 550 * selectedSeats.length;
+            document.getElementById("TotalPrice").innerText = totalPrice;
+        }
         function handleClick(button) {
             if (selectedSeats.length<4) {
                 var innerText = button.innerText;
@@ -395,13 +404,57 @@
             button.classList.add("text-white");
             button.classList.add("bg-green-400");
             button.classList.remove("bg-gray-200");
-            button.disabled = true; // Disable the button
+            button.disabled = true; 
             console.log(selectedSeats);
-            }else{
-                document.getElementsByClassName("seat").disabled = true;
+            setTotalSet();
+            enableSubmit();
+            calculateTotal();
+            // show Sit info
+            let outputDiv = document.getElementById("sitInfo");
+            var ul = document.createElement('div');
+            ul.classList.add("flex");
+            ul.classList.add("justify-between");
+                var li = document.createElement('p');
+                li.textContent = innerText;
+                ul.appendChild(li);
+             outputDiv.appendChild(ul);
+             var li = document.createElement('p');
+                li.textContent = "Economoy";
+                ul.appendChild(li);
+             outputDiv.appendChild(ul);
+             var li = document.createElement('p');
+                li.textContent = "550";
+                ul.appendChild(li);
+             outputDiv.appendChild(ul);
+
+            // show sit info end
+            let sitLeft = document.getElementById("sitLeft").innerText;
+            document.getElementById("sitLeft").innerText = sitLeft - 1;
+            if (selectedSeats.length==4) {
+               
+                document.getElementById("coupenAdd").classList.add("flex");
+                document.getElementById("coupenAdd").classList.remove("hidden");
+                
+            }
             }
             
         }
+        function onCouponApply() { 
+            let coupenVal =  document.getElementById("coupenVal").value;
+            if (coupenVal=="NEW15" || coupenVal=="Couple 20") {
+                document.getElementById("totalDiscount").classList.add("flex");
+                document.getElementById("totalDiscount").classList.remove("hidden");
+                document.getElementById("coupenAdd").classList.add("hidden");
+                document.getElementById("coupenAdd").classList.remove("flex");
+                document.getElementById("GrandTotal").classList.add("flex");
+                document.getElementById("GrandTotal").classList.remove("hidden");
+                let totalPrice  = 550 * selectedSeats.length;
+                let discoutRate = totalPrice * (coupenVal=="NEW15"?0.15:0.2);
+                document.getElementById("discountPrice").innerText = discoutRate;
+                document.getElementById("grandPrice").innerText =totalPrice - discoutRate ;
+                console.log(discoutRate);
+            }
+         }
       </script>
 
 </body>
