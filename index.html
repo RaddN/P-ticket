@@ -309,7 +309,7 @@
                             <p>BDT <span id="discountPrice">0</span></p>
                         </div>
                         <label id="coupenAdd" class="input input-bordered items-center gap-2 flex">
-                            <input id="coupenVal" type="text" class="grow" placeholder="Search" disabled />
+                            <input id="coupenVal" type="text" class="grow" placeholder="Have any copupon?" disabled />
                             <button id="couplenApplyBtn" class="badge btn badge-info bg-green-500 text-white rounded-md m-5 px-10" onclick="onCouponApply()">Apply</button>
                           </label>
                           <div id="GrandTotal" class=" justify-between font-bold hidden">
@@ -433,9 +433,14 @@
             if (selectedSeats.length==4) {
                 document.getElementById("coupenVal").disabled = false; 
             }
+            }else{
+                openPopup("Max(4) sit taken");
             }
             
         }
+        function openPopup(message) {
+            alert(message);
+    }
         function onCouponApply() { 
             let coupenVal =  document.getElementById("coupenVal").value;
             if (coupenVal=="NEW15" || coupenVal=="Couple 20") {
@@ -450,7 +455,10 @@
                 document.getElementById("discountPrice").innerText = discoutRate;
                 document.getElementById("grandPrice").innerText =totalPrice - discoutRate ;
                 console.log(discoutRate);
+            }else{
+                openPopup("Invalid Coupon Code");
             }
+            
          }
       </script>
 
