@@ -308,9 +308,9 @@
                             <p>Discount Price</p>
                             <p>BDT <span id="discountPrice">0</span></p>
                         </div>
-                        <label id="coupenAdd" class="input input-bordered items-center gap-2 hidden">
-                            <input id="coupenVal" type="text" class="grow" placeholder="Search" />
-                            <button class="badge btn badge-info bg-green-500 text-white rounded-md m-5 px-10" onclick="onCouponApply()">Apply</button>
+                        <label id="coupenAdd" class="input input-bordered items-center gap-2 flex">
+                            <input id="coupenVal" type="text" class="grow" placeholder="Search" disabled />
+                            <button id="couplenApplyBtn" class="badge btn badge-info bg-green-500 text-white rounded-md m-5 px-10" onclick="onCouponApply()">Apply</button>
                           </label>
                           <div id="GrandTotal" class=" justify-between font-bold hidden">
                             <p>Grand Total</p>
@@ -431,10 +431,7 @@
             let sitLeft = document.getElementById("sitLeft").innerText;
             document.getElementById("sitLeft").innerText = sitLeft - 1;
             if (selectedSeats.length==4) {
-               
-                document.getElementById("coupenAdd").classList.add("flex");
-                document.getElementById("coupenAdd").classList.remove("hidden");
-                
+                document.getElementById("coupenVal").disabled = false; 
             }
             }
             
